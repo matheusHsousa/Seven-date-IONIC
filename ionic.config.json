@@ -1,0 +1,8 @@
+{
+  "name": "SevenDate",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

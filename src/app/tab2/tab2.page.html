@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Gospel Crush
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+      <swiper-container
+      (slidechange)="swiperSlideChanged($event)"
+      [loop]="true"
+      [pagination]="true"
+    >
+    <ng-container *ngFor="let slide of Infos.slides">
+      <swiper-slide  id="open-modal" expand="block">
+        <img [src]="slide" (click)="setCurrentSlide(slide)"/>
+      </swiper-slide>
+    </ng-container>
+      
+    </swiper-container>
+      <ion-card-header>
+        <ion-card-title> {{ Infos.names }}</ion-card-title>
+        <ion-card-subtitle>{{ Infos.subtitles }}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{ Infos.details }}
+      </ion-card-content>
+    </ion-card>
+
+    <div class="button-container">
+      <ion-button class="left-button" color="danger" (click)="previousProfile()">Jejuar</ion-button>
+      <ion-button class="right-button" color="success" (click)="nextProfile()">Orar</ion-button>
+    </div>
+
+    <ion-modal #modal trigger="open-modal">
+      <ng-template>
+        <ion-conten>
+          <img [src]="currentSlide" class="imgModal"/>
+        </ion-conten>
+      </ng-template>
+    </ion-modal>
+ 
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Crushizinhos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Crushizinhos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let data of database"  id="open-modal" expand="block">
+      <ion-avatar slot="start">
+        <ion-img [src]="data.slides[0]"></ion-img>
+      </ion-avatar>
+      <ion-label >{{ data.names }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-icon name="chevron-back-outline" (click)="confirm()"></ion-icon>
+          <ion-title>Duplas de Oração</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="chat-container">
+          <div class="message-list user-message-preview">
+            <div *ngFor="let message of previewMessages" >
+              <p> banana {{ message }}</p>
+            </div>
+          </div>
+          <div class="input-container">
+            <ion-input
+              aria-label="Custom input"
+              placeholder="Digite sua mensagem..."
+              class="custom"
+              [counter]="true"
+              [(ngModel)]="userMessage"
+            ></ion-input>
+              <ion-icon name="send" class="send-icon" (click)="sendMessage()"></ion-icon>
+          </div>
+        </div>
+      </ion-content>      
+      
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

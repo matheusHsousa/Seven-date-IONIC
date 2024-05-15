@@ -1,0 +1,27 @@
+ion-avatar{
+    width: 150px;
+    height: 150px;
+}
+
+.align-center{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 30vh;
+}
+
+.align-center-txt {
+    display: flex;
+    align-items: center;
+  }
+  
+  .align-center-txt label {
+    flex-shrink: 0;
+    margin-right: 10px;
+    text-align: start; 
+  }
+
+  .align-center-txt p {
+    margin: 0; 
+    text-align: center;
+  }
